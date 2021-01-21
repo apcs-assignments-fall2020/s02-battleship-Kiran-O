@@ -3,8 +3,15 @@ public class MyMain {
     // was a boat the specified coordinates. This
     // method also prints out an appropriate message
     public static boolean hit(boolean[][] board, int row, int col) { 
-        // YOUR CODE HERE
-        return false;
+        if (board[row][col] == true){
+            System.out.println("There was a hit!");
+            return true;
+        }
+        else  {
+            System.out.println("You missed a boat!");
+            return false;
+        }
+        
     }
 
 
@@ -13,7 +20,17 @@ public class MyMain {
     // The remaining pieces are placed in the direction given
     // by the direction input
     public static boolean[][] placeBoat(boolean[][] board, String direction, int boatLength, int row, int col) { 
-        // YOUR CODE HERE
+        if (direction.equals("down")){
+            for (int k = 0; k < boatLength; k++){
+                board[row + k][col] = true;
+            }
+        }
+        else if (direction.equals("right")){
+            for (int k = 0; k < boatLength; k++){
+                board[row][col + k] = true;
+            }
+
+        }
         return board;
     }
 
@@ -22,8 +39,20 @@ public class MyMain {
     // increasing length
     // You may assume that all Strings are lowercase 
     public static boolean inOrder(String[][] words) { 
-        // YOUR CODE HERE
-        return false;
+        for (int row = 0; row < words.length; row++){
+            for (int col = 0; col < words.length - 1; col++){
+                if (words[row][col].charAt(0) > words[row][col + 1].charAt(0)){
+                    return false;
+                }
+                else if (words[row][col].length() > words[row][col + 1].length()){
+                    return false;
+
+                
+
+                }
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
